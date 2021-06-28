@@ -1,0 +1,61 @@
+
+    <!doctype html>
+    <html ng-app="poolApp">
+      <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+         <script src="/javascripts/PoolController.js"></script>
+      </head>
+      <body class="container">
+        <h1>Insert Your Vote</h1>
+          <div ng-controller="PoolController as pc">
+              <form ng-submit="pc.addVote()">
+                  
+                  <div class="form-group">
+                      <input type='text' placeholder='Name' class="form-control" ng-model='pc.name' />
+                  </div>
+                  <div class="form-group">
+                      <input type='tel' placeholder='Cadidate' class="form-control" ng-model='pc.candidate' />
+                  </div>
+
+                  <input class="btn-primary" type="submit" value="Add Vote">
+              </form>
+
+                  <h1>Votes</h1>
+                  <table class="table table-striped">
+                      <tr>
+                          <th>Name</th>
+                          <th>Candidate</th>
+                      </tr>
+                      <tr ng-repeat='v in pc.votes'>
+                          <td>{{v.name}}</td>
+                          <td>{{v.candidate}}</td>
+                      </tr>
+                  </table>
+
+          </div>
+          <style>
+            .container, .form-group, .btn-primary, .form-control, .table, h1 {
+              color: rgb(152, 163, 194);
+              background-color: rgb(6, 3, 39);
+                padding: 10px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; 
+            }
+            .btn-primary {
+                background-color: rgb(51, 43, 139);
+                margin-left: 70px;
+                font-size: 15px;
+                color: rgb(7, 0, 49);
+                font-weight:bold;
+            }
+            .form-control{
+                background-color:rgb(23, 16, 100);
+                font-size: 15px;
+            }
+          </style>
+      </body>
+    </html>
+
